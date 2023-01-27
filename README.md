@@ -1,5 +1,13 @@
 # CS209
-java2
-## This is the fitst commit for cs209
-### 2022.9.26
-上传了lab3的练习
+
+
+
+|    source    |  score  |
+| :---------: | :-----: |
+|     lab     |  15/15  |
+| assignment1 | 100/100 |
+| assignment2 | 97/100  |
+|   project   | 97/100  |
+|    final    |         |
+
+
