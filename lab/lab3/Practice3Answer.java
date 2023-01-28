@@ -1,9 +1,9 @@
-package lab3;
+package lab.lab3;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Practice3Answer {
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class Practice3Answer {
             if (x == 0) {
                 break;
             }
-            ArrayList<Integer> nums = new ArrayList<>();
+            List<Integer> nums = new ArrayList<>();
             System.out.println("Input size of the list:");
             int size = input.nextInt();
             System.out.println("Input elements of the list:");
@@ -27,38 +27,23 @@ public class Practice3Answer {
                 nums.add(input.nextInt());
             }
             if (x == 1) {
-                eval(nums, n -> n % 2 != 0);
+                nums = nums.stream().filter(o -> o % 2 == 0).collect(Collectors.toList());
             } else if (x == 2) {
-                eval(nums, n -> n % 2 == 0);
+                nums = nums.stream().filter(o -> o % 2 == 1).collect(Collectors.toList());
             } else if (x == 3) {
-                eval(nums, n -> {
-                    for (int i = 2; i < n; i++) {
-                        if (n % i == 0) {
-                            return false;
-                        }
-                    }
-                    return true;
-                });
-            } else if (x == 4) {
-                eval(nums, n -> {
-                    for (int i = 2; i < n; i++) {
-                        if (n % i == 0) {
-                            return false;
-                        }
-                    }
-                    return n > 5;
-                });
+                nums = nums.stream().filter(o -> isPrime(o)).collect(Collectors.toList());
             }
+            else if (x == 4){
+                nums = nums.stream().filter(o -> isPrime(o) && o > 5).collect(Collectors.toList());
+            }
+            System.out.println(nums);
         }
     }
 
-    public static void eval(List<Integer> nums, Predicate<Integer> predicate) {
-        ArrayList<Integer> array = new ArrayList<>();
-        for (Integer n : nums) {
-            if (predicate.test(n)) {
-                array.add(n);
-            }
+    public static boolean isPrime(int i) {
+        for (int j = 2; j < i; j++) {
+            if (i % j == 0) return false;
         }
-        System.out.println(array);
+        return true;
     }
 }
