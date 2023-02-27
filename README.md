@@ -8,6 +8,6 @@
 | assignment1 | 100/100 |
 | assignment2 | 97/100  |
 |   project   | 97/100  |
-|    final    |         |
-
+|  final exam |  68/100 |
+|    final.   |  90/100 |
 
